@@ -8,13 +8,14 @@ public class Bingo{
 	private int numero[]= new int [90];
 	private int bingoCantado=0, cont;
 	private int bolaNumero=90, bolaActual=0;
+	private long tiempo=System.currentTimeMillis(), tiempo2;
 	private PruebaVentana1 ventana1 = new PruebaVentana1(6, 76);
 
 	
 	
 	public void lanzarbolas(){
 		int previo=0;
-		int cont=0;
+		cont=0;
 		while (bingoCantado==0){
 			do
 				previo=(int)(Math.random()*90);
@@ -25,6 +26,12 @@ public class Bingo{
 			System.out.println("bola numero "+cont+" = "+bolaActual+" ");
 			bolaNumero=bolaNumero-1;
 			ventana1.ponTexto(cont, bolaActual );
+			tiempo2=System.currentTimeMillis();
+			while (tiempo2<=(tiempo+1000)){
+				
+					tiempo2=System.currentTimeMillis();
+			}
+			tiempo=System.currentTimeMillis();
 			if (bolaNumero==0){bingoCantado=1;}
 		}
 	}
